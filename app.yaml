@@ -9,6 +9,14 @@ runtime_config:
   php_version: 8.1
 
 
+# CSSとJS
+handlers:
+- url: /css
+  static_dir: public/css
+- url: /js
+  static_dir: public/js
+
+
 automatic_scaling:
   min_idle_instances: automatic
   max_pending_latency: automatic
@@ -22,6 +30,11 @@ env_variables:
   CACHE_DIRECTORY: /tmp/laravel/cache
   SESSION_DRIVER: cookie
   APP_STORAGE: /tmp
+  # Cloud SQL
+  DB_DATABASE: example_app
+  DB_USERNAME: root
+  DB_PASSWORD: root
+  DB_SOCKET: "/cloudsql/t-project-gcp:asia-northeast1:test-instance"
 
 
 # デプロイ時のcomposerのバージョン
